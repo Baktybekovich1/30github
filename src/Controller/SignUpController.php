@@ -16,6 +16,8 @@ final class SignUpController extends AbstractController
 {
     public function __construct(private UserRepository $userRepository)
     {
+
+        
     }
 
     #[Route('/sign-up', name: 'app_sign_up', methods: ['POST'])]
