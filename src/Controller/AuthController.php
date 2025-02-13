@@ -15,7 +15,10 @@ final class AuthController extends AbstractController
 {
 
 
-    public function __construct(private Security $security, private UserRepository $userRepository, private JWTTokenManagerInterface $jwtManager)
+    public function __construct(
+        private readonly Security                 $security,
+        private readonly UserRepository           $userRepository,
+        private readonly JWTTokenManagerInterface $jwtManager)
     {
     }
 
