@@ -4,6 +4,8 @@ security:
     Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
   # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
   providers:
+    hwi_oauth.user.provider:
+      id: hwi_oauth.user.provider
     # used to reload user from session & other features (e.g. switch_user)
     app_user_provider:
       entity:
@@ -13,27 +15,27 @@ security:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
       security: false
-    login:
-      pattern: ^/api/login
-      stateless: true
-      json_login:
-        check_path: /api/login
-        username_path: username
-        password_path: password
-        success_handler: lexik_jwt_authentication.handler.authentication_success
-        failure_handler: lexik_jwt_authentication.handler.authentication_failure
-    api:
-      pattern: ^/api
-      stateless: true
-      jwt: ~
+    main:
+      pattern: ^/
+      oauth:
+        resource_owners:
+          google: "/login/check-google"
+        login_path: /
+        use_forward: false
+        failure_path: /
+
+        oauth_user_provider:
+          service: hwi_oauth.user.provider
+        provider: hwi_oauth.user.provider
 
 
   # Easy way to control access for large sections of your site
   # Note: Only the *first* access control that matches will be used
   access_control:
-  #    - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-  #         - { path: ^/admin, roles: ROLE_ADMIN }
-  # - { path: ^/profile, roles: ROLE_USER }
+    - { path: ^/login, roles: PUBLIC_ACCESS }
+    - { path: ^/connect, roles: PUBLIC_ACCESS }
+    - { path: ^/(.+), roles: ROLE_USER }
+    - { path: ^/$, roles: PUBLIC_ACCESS }
 
 when@test:
   security:
