@@ -32,6 +32,9 @@ final class SignUpController extends AbstractController
         $user->setRoles(['ROLE_USER']);
         $user->setPassword($userPasswordHasher->hashPassword($user, $dto->password));
 
+
+
+        
         $this->userRepository->save($user);
 
         return $this->json(['token' => 'Ilya Salam']);
