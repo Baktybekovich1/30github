@@ -27,6 +27,8 @@ final class SignUpController extends AbstractController
         if ($this->userRepository->existsByEmail($dto->email)) {
             return $this->json(['Email already exists.'], Response::HTTP_BAD_REQUEST);
         }
+
+
         $user = new User();
         $user->setEmail($dto->email);
         $user->setRoles(['ROLE_USER']);
@@ -34,7 +36,6 @@ final class SignUpController extends AbstractController
 
 
 
-        
         $this->userRepository->save($user);
 
         return $this->json(['token' => 'Ilya Salam']);
