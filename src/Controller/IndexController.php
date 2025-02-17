@@ -19,6 +19,12 @@ final class IndexController extends AbstractController
 //            'error' => $error,
 //        ]);
 //    }
+
+
+
+
+
+
 //
 //    #[Route('/logout', name: 'logout')]
 //    public function logout(): void
