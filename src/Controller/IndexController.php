@@ -6,6 +6,7 @@ use App\Service\EmailService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 final class IndexController extends AbstractController
 {
@@ -14,11 +15,11 @@ final class IndexController extends AbstractController
     }
 
     #[Route('/', name: 'index', methods: ['GET'])]
-    public function login(): JsonResponse
+    public function login(UserInterface $user): JsonResponse
     {
 
         $this->emailService->sendNotification('juliaanara442@gmail.com',
-            'Открыта страница уведомления', 'Пользователь открыл страницу уведомлений.');
+            'Вашу страницу открыл', $user->getUserIdentifier());
 
         return $this->json('Hello World!');
     }
