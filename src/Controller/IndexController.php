@@ -17,7 +17,6 @@ final class IndexController extends AbstractController
     #[Route('/', name: 'index', methods: ['GET'])]
     public function login(UserInterface $user): JsonResponse
     {
-
         $this->emailService->sendNotification('juliaanara442@gmail.com',
             'Вашу страницу открыл', $user->getUserIdentifier());
 
