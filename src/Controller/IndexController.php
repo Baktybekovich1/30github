@@ -24,14 +24,9 @@ final class IndexController extends AbstractController
     }
 
 
-
-
-
-
-//
-//    #[Route('/logout', name: 'logout')]
-//    public function logout(): void
-//    {
-//        // Symfony сам обработает этот маршрут
-//    }
+    #[Route('/logout', name: 'logout')]
+    public function logout(): void
+    {
+        // Symfony сам обработает этот маршрут
+    }
 }
