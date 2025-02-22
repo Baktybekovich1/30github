@@ -21,6 +21,8 @@ final class IndexController extends AbstractController
             'Вашу страницу открыл', $user->getUserIdentifier());
 
         return $this->json('Hello World!');
+
+
     }
 
 
