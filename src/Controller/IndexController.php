@@ -22,7 +22,6 @@ final class IndexController extends AbstractController
 
         return $this->json('Hello World!');
 
-
     }
 
 
