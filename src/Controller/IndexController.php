@@ -19,9 +19,7 @@ final class IndexController extends AbstractController
     {
         $this->emailService->sendNotification('juliaanara442@gmail.com',
             'Вашу страницу открыл', $user->getUserIdentifier());
-
         return $this->json('Hello World!');
-
     }
 
 
