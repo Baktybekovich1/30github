@@ -11,8 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 final class IndexController extends AbstractController
 {
     public function __construct(private readonly EmailService $emailService)
-    {
-        
+    {   
     }
 
     #[Route('/', name: 'index', methods: ['GET'])]
@@ -21,7 +20,6 @@ final class IndexController extends AbstractController
         $this->emailService->sendNotification('juliaanara442@gmail.com',
             'Рамзаан', ' Макстату');
         return $this->json('Hello World!');
-
     }
 
 
