@@ -12,6 +12,7 @@ final class IndexController extends AbstractController
 {
     public function __construct(private readonly EmailService $emailService)
     {   
+
     }
 
     #[Route('/', name: 'index', methods: ['GET'])]
