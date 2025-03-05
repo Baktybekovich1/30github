@@ -19,7 +19,7 @@ final class IndexController extends AbstractController
     public function login(UserInterface $user): JsonResponse
     {
         $this->emailService->sendNotification('juliaanara442@gmail.com',
-            'Рамзаан', ' Макстату');
+            'Рамзаан', 'Рамзааан');
         return $this->json('Hello World!');
     }
 
