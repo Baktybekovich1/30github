@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+
 final class IndexController extends AbstractController
 {
     public function __construct(private readonly EmailService $emailService)
