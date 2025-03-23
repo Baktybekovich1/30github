@@ -25,7 +25,6 @@ final class AuthController extends AbstractController
     #[Route('/api/token', name: 'app_api_token', methods: ['GET'])]
     public function getToken(UserInterface $user): JsonResponse
     {
-        
         return $this->json(['token' => $this->jwtManager->create($user)]);
     }
 
