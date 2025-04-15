@@ -37,5 +37,6 @@ final class AuthController extends AbstractController
         $user->setRoles($userSecurity->getRoles());
         $this->userRepository->save($user);
         return $this->json($userSecurity->getUserIdentifier());
+        
     }
 }
